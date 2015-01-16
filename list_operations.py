@@ -166,7 +166,10 @@ def custom_len(input_list):
     """
         like len(input_list), should return the number of items in the list
     """
-    pass
+    item_count = 0
+    for item in input_list:
+        item_count = item_count + 1
+    return item_count
 
 # For the next four functions, get clever using slice operations described in the first half
 def custom_append(input_list, value):
@@ -174,27 +177,37 @@ def custom_append(input_list, value):
         like input_list.append(value), should add the value to the end of the list
         and return nothing
     """
-    pass
+    last_index = custom_len(input_list)
+    input_list[last_index:] = [value]
+    
 
 def custom_extend(input_list, second_list):
     """
         like input_list.extend(second_list), should append every item in the second 
         list to the end of the first list and return nothing
     """
-    pass
+
+    for item in second_list:
+        custom_append(input_list, item)
 
 def custom_insert(input_list, index, value):
     """
         like input_list.insert(index, value), should insert (not replace) the value
         at the specified index of the input list and return nothing
     """
-    pass
+    index = int(index)
+
+    input_list[index:index] = [value]
+
 
 def custom_remove(input_list, value):
     """
         like input_list.remove(value), should remove the first item of the 
         value specified and return nothing
     """
+
+    for x in input_list:
+        if x == value:
     pass
 
 def custom_pop(input_list):
